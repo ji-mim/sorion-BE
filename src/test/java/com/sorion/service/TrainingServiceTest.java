@@ -2,23 +2,18 @@ package com.sorion.service;
 
 import com.sorion.domain.*;
 import com.sorion.dto.TrainingSessionAnswerRequest;
-import com.sorion.dto.TrainingSessionResponse;
 import com.sorion.dto.TrainingStepsResponse;
 import com.sorion.repository.*;
 import lombok.RequiredArgsConstructor;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.stream.Collectors;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.context.TestConstructor.AutowireMode.ALL;
 
 @SpringBootTest
