@@ -8,8 +8,12 @@ spring:
       &serverTimezone=Asia/Seoul
     username: root
     password: qkfka1396
+#    url: jdbc:mysql://sorion.c72eo8ao42qt.ap-northeast-2.rds.amazonaws.com:3306/sorion?serverTimezone=Asia/Seoul&useSSL=false
+#    username: admin
+#    password: 추가하기
 
   jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect   # 또는 MySQL8Dialect
     hibernate:
       ddl-auto: create     # 개발: update 권장 / 운영: validate 또는 none + Flyway
     properties:

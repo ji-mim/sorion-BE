@@ -31,13 +31,12 @@ public class DataInitializer implements CommandLineRunner {
                 .orElseGet(() -> userRepository.save(new Users("tester")));
 
         // 2) 사운드 upsert
-        Sound s1 = getOrCreateSound("항공기", "https://cdn.example.com/dryer.mp3", daily, 39);
-        Sound s2 = getOrCreateSound("자동차", "https://cdn.example.com/fan.mp3",   daily, 11);
-        Sound s3 = getOrCreateSound("고양이", "https://cdn.example.com/fan.mp3",   daily, 31);
-        Sound s4 = getOrCreateSound("세탁기", "https://cdn.example.com/fan.mp3",   daily, 22);
-        Sound s5 = getOrCreateSound("지하철", "https://cdn.example.com/fan.mp3",   daily, 16);
-        Sound s6 = getOrCreateSound("발소리", "https://cdn.example.com/fan.mp3",   daily, 41);
-
+        Sound s1 = getOrCreateSound("항공기", "https://sorion-bucket.s3.ap-northeast-2.amazonaws.com/audio/ariplane.wav", daily, 39);
+        Sound s2 = getOrCreateSound("자동차", "https://sorion-bucket.s3.ap-northeast-2.amazonaws.com/audio/car.wav", daily, 11);
+        Sound s3 = getOrCreateSound("고양이", "https://sorion-bucket.s3.ap-northeast-2.amazonaws.com/audio/cat.wav", daily, 31);
+        Sound s4 = getOrCreateSound("세탁기", "https://sorion-bucket.s3.ap-northeast-2.amazonaws.com/audio/washmachine.wav", daily, 22);
+        Sound s5 = getOrCreateSound("지하철", "https://sorion-bucket.s3.ap-northeast-2.amazonaws.com/audio/train.wav", daily, 16);
+        Sound s6 = getOrCreateSound("발소리", "https://sorion-bucket.s3.ap-northeast-2.amazonaws.com/audio/walk.wav", daily, 41);
         // 3) 트레이닝 upsert
         Training training = trainingRepository.findByTitleAndCategory("소리 적응 트레이닝", daily)
                 .orElseGet(() -> trainingRepository.save(new Training(daily, "소리 적응 트레이닝")));

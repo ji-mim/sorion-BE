@@ -1,47 +1,17 @@
 services:
-  db:
-    image: mysql:8.4
-    container_name: sorion-mysql
-    command: >
-      --character-set-server=utf8mb4
-      --collation-server=utf8mb4_unicode_ci
-    environment:
-      MYSQL_DATABASE: sorion
-      MYSQL_USER: sorion
-      MYSQL_PASSWORD: sorion
-      MYSQL_ROOT_PASSWORD: root
-    ports:
-      - "3306:3306"
-    volumes:
-      - sorion-mysql-data:/var/lib/mysql
-    healthcheck:
-      # 컨테이너 내부에서 로컬호스트로 ping (서비스명 대신 127.0.0.1 권장)
-      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-proot"]
-      interval: 5s
-      timeout: 3s
-      retries: 20
-
   app:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: sorion-app
-    depends_on:
-      db:
-        condition: service_healthy
     ports:
-      - "8080:8080"
+      - "${SERVER_PORT:-8080}:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/sorion?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
-      SPRING_DATASOURCE_USERNAME: sorion
-      SPRING_DATASOURCE_PASSWORD: sorion
-      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
-      SPRING_JPA_HIBERNATE_DDL_AUTO: create
-      SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL: "true"
-      LOGGING_LEVEL_ORG_HIBERNATE_SQL: debug
-      # 초기 데이터 항상 넣으려면 활성화
-      # SPRING_PROFILES_ACTIVE: init
-      JAVA_OPTS: "-Xms256m -Xmx512m"
-
-volumes:
-  sorion-mysql-data:
+      SPRING_DATASOURCE_URL: ${SPRING_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${SPRING_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${SPRING_DATASOURCE_PASSWORD}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: ${SPRING_JPA_HIBERNATE_DDL_AUTO}
+      SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL: ${SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL}
+      LOGGING_LEVEL_ORG_HIBERNATE_SQL: ${LOGGING_LEVEL_ORG_HIBERNATE_SQL}
+      JAVA_OPTS: ${JAVA_OPTS}
+    restart: unless-stopped
