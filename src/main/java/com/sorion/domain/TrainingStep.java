@@ -23,6 +23,7 @@ public class TrainingStep {
     @JoinColumn(name = "sound_id")
     private Sound sound;
 
+    @Column(unique = true)
     private int stepOrder;
 
     @Convert(converter = ChoiceListConverter.class)

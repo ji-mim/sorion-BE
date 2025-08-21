@@ -11,6 +11,7 @@ public class Sound {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "sound_id")
     private Long id;
+    @Column(unique = true, nullable = false)
     private String soundName;
     private String soundPath;
 
