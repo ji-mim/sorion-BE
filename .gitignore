@@ -35,3 +35,18 @@ out/
 
 ### VS Code ###
 .vscode/
+
+
+# Gradle
+build
+out
+
+# IDE
+.vscode
+
+# OS
+.DS_Store
+
+# Git
+.git
+.gitignore
