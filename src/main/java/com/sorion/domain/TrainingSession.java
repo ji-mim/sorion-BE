@@ -29,4 +29,7 @@ public class TrainingSession {
         this.training = training;
         this.startTime = startTime;
     }
+
+    protected TrainingSession() {
+    }
 }

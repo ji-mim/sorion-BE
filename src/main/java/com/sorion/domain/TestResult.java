@@ -25,4 +25,14 @@ public class TestResult {
     private LocalDateTime startTime;
 
     private int sensitiveRating;
+
+    protected TestResult() {
+    }
+
+    public TestResult(Users users, Sound sound, LocalDateTime startTime, int sensitiveRating) {
+        this.users = users;
+        this.sound = sound;
+        this.startTime = startTime;
+        this.sensitiveRating = sensitiveRating;
+    }
 }
