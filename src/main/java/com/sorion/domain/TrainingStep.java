@@ -19,7 +19,7 @@ public class TrainingStep {
     @JoinColumn(name = "training_id")
     private Training training;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sound_id")
     private Sound sound;
 
@@ -32,5 +32,13 @@ public class TrainingStep {
     private String answer;
 
     protected TrainingStep() {
+    }
+
+    public TrainingStep(Training training, Sound sound, int stepOrder, List<Choice> choices, String answer) {
+        this.training = training;
+        this.sound = sound;
+        this.stepOrder = stepOrder;
+        this.choices = choices;
+        this.answer = answer;
     }
 }

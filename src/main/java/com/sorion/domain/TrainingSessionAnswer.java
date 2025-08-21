@@ -19,5 +19,17 @@ public class TrainingSessionAnswer {
     @JoinColumn(name = "training_step_id")
     private TrainingStep trainingStep;
 
-    private boolean correct;
+    private String choice;
+
+    private boolean isCorrect;
+
+    protected TrainingSessionAnswer() {
+    }
+
+    public TrainingSessionAnswer(TrainingSession trainingSession, TrainingStep trainingStep, String choice, boolean isCorrect) {
+        this.trainingSession = trainingSession;
+        this.trainingStep = trainingStep;
+        this.choice = choice;
+        this.isCorrect = isCorrect;
+    }
 }
