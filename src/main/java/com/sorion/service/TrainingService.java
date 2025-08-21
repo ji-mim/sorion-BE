@@ -53,7 +53,7 @@ public class TrainingService {
 
         TrainingStep trainingStep = trainingStepRepository.findById(request.stepId()).orElseThrow(() -> new NoSuchElementException("don't exist step"));
 
-        TrainingSessionAnswer trainingSessionAnswer = trainingSessionAnswerRepository
+        trainingSessionAnswerRepository
                 .save(new TrainingSessionAnswer(trainingSession, trainingStep, request.choiceId(), request.isCorrect()));
     }
 
