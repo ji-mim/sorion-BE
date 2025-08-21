@@ -15,4 +15,8 @@ public class Users {
 
     protected Users() {
     }
+
+    public Users(String username) {
+        this.username = username;
+    }
 }

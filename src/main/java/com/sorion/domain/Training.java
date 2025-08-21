@@ -20,4 +20,9 @@ public class Training {
 
     protected Training() {
     }
+
+    public Training(Category category, String title) {
+        this.category = category;
+        this.title = title;
+    }
 }

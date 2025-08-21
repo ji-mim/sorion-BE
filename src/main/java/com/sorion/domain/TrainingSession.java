@@ -24,6 +24,9 @@ public class TrainingSession {
 
     private LocalDateTime startTime;
 
-
-
+    public TrainingSession(Users users, Training training, LocalDateTime startTime) {
+        this.users = users;
+        this.training = training;
+        this.startTime = startTime;
+    }
 }

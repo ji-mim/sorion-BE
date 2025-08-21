@@ -18,4 +18,9 @@ public class Category {
 
     protected Category() {
     }
+
+    public Category(String name, String imagePath) {
+        this.name = name;
+        this.imagePath = imagePath;
+    }
 }
