@@ -18,11 +18,16 @@ public class Sound {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    int duration;
-
-    int soundOrder;
+    private int duration;
 
 
     protected Sound() {
+    }
+
+    public Sound(String soundName, String soundPath, Category category, int duration) {
+        this.soundName = soundName;
+        this.soundPath = soundPath;
+        this.category = category;
+        this.duration = duration;
     }
 }
