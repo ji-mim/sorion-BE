@@ -7,7 +7,7 @@ spring:
       &allowPublicKeyRetrieval=true
       &serverTimezone=Asia/Seoul
     username: root
-    password: qkfka1396
+    password: 
 #    url: jdbc:mysql://sorion.c72eo8ao42qt.ap-northeast-2.rds.amazonaws.com:3306/sorion?serverTimezone=Asia/Seoul&useSSL=false
 #    username: admin
 #    password: 추가하기
